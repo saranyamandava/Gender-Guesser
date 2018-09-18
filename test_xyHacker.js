@@ -32,7 +32,7 @@ function predict(s) {
         
         var class_names = ['Male','Female']
         //get the prediction 
-        var pred = model.predict(preprocess(s)).dataSync()
+        var pred = model.predict(s).dataSync()
         console.log(pred)            
         //retreive the highest probability class label 
         const idx = tf.argMax(pred);
