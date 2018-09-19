@@ -1,5 +1,5 @@
 
-
+import * as tf from '@tensorflow/tfjs';
 async function start(){
 	
 	model = await tf.loadModel('model/model.json')
