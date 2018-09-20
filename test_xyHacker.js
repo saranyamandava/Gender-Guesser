@@ -1,3 +1,4 @@
+var model;
 function preprocess(s){
 	var tokens = s.split(" ")
     
@@ -32,7 +33,7 @@ async function start(){
 	//img = document.getElementById('image').files[0];
 	
         
-        model = await tf.loadModel('model/model.json')
+        var model = await tf.loadModel('model/model.json')
         
         var status = document.getElementById('status')
       
