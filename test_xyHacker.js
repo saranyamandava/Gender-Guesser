@@ -1,3 +1,9 @@
+function preprocess(s){
+	var tokens = s.split(" ")
+    
+    console.log(tokens.length)
+    return tokens
+}
 function predict(s) {
         
         var class_names = ['Male','Female']
