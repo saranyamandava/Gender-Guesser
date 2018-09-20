@@ -34,7 +34,7 @@ async function start(){
         
         var myText = document.getElementById("myText");
         var s = myText.value;
-        console.log(type(s))
+        console.log(typeof(s))
         predict(s)
          
         }
