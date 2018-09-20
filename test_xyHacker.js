@@ -5,7 +5,7 @@ function preprocess(s){
     console.log(tokens.length)
     return tokens
 }
-function predict(s,model) {
+function predict(s) {
         
         var class_names = ['Male','Female']
         //get the prediction 
@@ -33,7 +33,7 @@ async function start(){
 	//img = document.getElementById('image').files[0];
 	
         
-        var model = await tf.loadModel('model/model.json')
+        model = await tf.loadModel('model/model.json')
         
         var status = document.getElementById('status')
       
@@ -42,7 +42,7 @@ async function start(){
         var myText = document.getElementById("myText");
         var s = myText.value;
         console.log(typeof(s))
-        predict(s,model)
+        predict(s)
          
         }
         
