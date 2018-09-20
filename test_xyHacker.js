@@ -1,3 +1,27 @@
+function predict(s) {
+        
+        var class_names = ['Male','Female']
+        //get the prediction 
+        var pred = model.predict(s).dataSync()
+        console.log(pred)            
+        //retreive the highest probability class label 
+        //const idx = tf.argMax(pred);
+
+                
+        //find the predictions 
+        //var indices = findIndicesOfMax(pred, 1)
+        //console.log(indices)
+        //var probs = findTopValues(pred, 1)
+        //var names = class_names(indices) 
+
+        //set the table 
+        //setTable(names, probs) 
+        //document.getElementById("Result").innerHTML = names
+        
+	    //console.log(names);
+        //console.log(document.getElementById("Result"));
+    
+  }
 async function start(){
 	//img = document.getElementById('image').files[0];
 	
@@ -11,7 +35,7 @@ async function start(){
         var myText = document.getElementById("myText");
         var s = myText.value;
         console.log(s)
-        //predict(s)
+        predict(s)
          
         }
         
