@@ -1,3 +1,4 @@
+import * as tf from '@tensorflow/tfjs';
 var model;
 function preprocess(s){
 	var tokens = s.split(" ")
