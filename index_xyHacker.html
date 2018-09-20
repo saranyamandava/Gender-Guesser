@@ -1,30 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Load TensorFlow.js -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"> </script>
+
+
+
+<!-- main script -->
+<!--<script src = "main.js" > </script> -->
 <script src = "test_xyHacker.js" > </script>
-</head> 
+    <!-- TensorFlow.js script -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+</head>
 <body>
-<h1 align="center">XY Hacker</h1>      
 <div class="container-fluid"> 
 
 <blockquote class="blockquote text-justify" style="margin:30px;">
- <p> This is a simple tool to determine the gender based on the writing. Model is trained on 400000 amazon reviews and this tool predicts with an accuracy of 70% </p>
-    
+ <p> This is a simple tool that uses Resnet to recognize IDC in images. 
+ The model was trained to recognize  with 40,000 images and it achieves 90.3% accuracy in detecting Invasive Ductal Carcinoma(IDC) in images.  </p>
+    <footer class="blockquote-footer">Saranya</footer>
   </blockquote>
 
 </div>
 <div class="col" style ='margin-left:100px;'>
 <h4 id ='status' >Loading Model... </h4>
-</div>
-<textarea id = "myText" rows="4" cols="100"></textarea>
-<div>
-<button type="button" value="Submit" onclick = "start()">submit</button>
-</div>
-<div>
+
+<!--<form onsubmit="start(this);"> -->
+  File: <input type="file" name="my_file" id = "image"/><br />
+  <button type="button" value="Submit" onclick = "start()">submit</button>
+<!-- </form> -->
 <p id = "Result"></p>
+<p id = "Probability"></p>
+</div>
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <!-- TensorFlow.js script -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+ crossorigin="anonymous"></script>
+
+<!-- main script -->
+<!--<script src = "main.js" > </script> -->
+<script src = "test.js" > </script>
+</head>
+<body>
+<div class="container-fluid"> 
+
+<blockquote class="blockquote text-justify" style="margin:30px;">
+ <p> This is a simple tool that uses Resnet to recognize IDC in images. 
+ The model was trained to recognize  with 40,000 images and it achieves 90.3% accuracy in detecting Invasive Ductal Carcinoma(IDC) in images.  </p>
+    <footer class="blockquote-footer">Saranya</footer>
+  </blockquote>
+
+</div>
+<div class="col" style ='margin-left:100px;'>
+<h4 id ='status' >Loading Model... </h4>
+
+<!--<form onsubmit="start(this);"> -->
+  File: <input type="file" name="my_file" id = "image"/><br />
+  <button type="button" value="Submit" onclick = "start()">submit</button>
+<!-- </form> -->
+<p id = "Result"></p>
+<p id = "Probability"></p>
 </div>
 </body>
 </html>
