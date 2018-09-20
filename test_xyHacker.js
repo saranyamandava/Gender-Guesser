@@ -5,7 +5,7 @@ function preprocess(s){
     console.log(tokens.length)
     return tokens
 }
-function predict(s) {
+function predict(s,model) {
         
         var class_names = ['Male','Female']
         //get the prediction 
@@ -42,7 +42,7 @@ async function start(){
         var myText = document.getElementById("myText");
         var s = myText.value;
         console.log(typeof(s))
-        predict(s)
+        predict(s,model)
          
         }
         
