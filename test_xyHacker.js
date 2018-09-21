@@ -50,7 +50,7 @@ function create_sequences(txt)
 async function start(){
 	//img = document.getElementById('image').files[0];
 	
-        
+        var class_names = {'male','female'}
         model = await tf.loadModel('model/model.json')
         
         var status = document.getElementById('status')
@@ -63,7 +63,7 @@ async function start(){
         input = tf.tensor(seq)
         input = input.expandDims(0)
         pred = model.predict(input)
-        if (pred.dataSync() >= 0.5){console.log('male')} else{console.log('female')}
+        if (pred.dataSync() >= 0.5){document.getElementById("Result").innerHTML = class_names[0] } else{document.getElementById("Result").innerHTML = class_names[1]}
          
         }
         
