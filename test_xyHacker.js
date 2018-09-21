@@ -1,3 +1,6 @@
+function clearContents() {
+  document.getElementById('myText').value = "";
+}
 async function loadDict()
 {
   await $.ajax({
