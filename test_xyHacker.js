@@ -30,23 +30,6 @@ function preprocess(txt)
     return out
 }
 
-def tokenize(thresh = 5):
-    count  = dict()
-    idx = 1
-    word_index = dict()
-    for txt in data_text:
-        words = preprocess(txt)
-        for word in words:
-            if word in count.keys():
-                count[word] += 1
-            else:
-                count[word]  = 1
-    most_counts = [word for word in count.keys() if count[word]>=thresh]
-    for word in most_counts:
-        word_index[word] = idx
-        idx+=1
-    return word_index
-
 
 function create_sequences(txt)
 {
