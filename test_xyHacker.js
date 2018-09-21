@@ -62,7 +62,7 @@ async function start(){
         seq = create_sequences(s) 
         input = tf.tensor(seq)
         input = input.expandDims(0)
-        pred = document.model.predict(input)
+        pred = model.predict(input)
         console.log(pred)
          
         }
