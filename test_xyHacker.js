@@ -33,7 +33,7 @@ function preprocess(txt)
 
 function create_sequences(txt)
 {
-    max_tokens = 2750
+    max_tokens = 231
     tokens = []
     words = preprocess(txt)
     seq = Array.from(Array(max_tokens), () => 0) 
