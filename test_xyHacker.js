@@ -35,7 +35,7 @@ function create_sequences(txt)
 {
     max_tokens = 2750
     tokens = []
-    words = process(txt)
+    words = preprocess(txt)
     seq = Array.from(Array(max_tokens), () => 0) 
     start = max_tokens-words.length
     for(var i= 0 ; i< words.length ; i++)
