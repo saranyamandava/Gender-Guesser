@@ -63,7 +63,7 @@ async function start(){
         input = tf.tensor(seq)
         input = input.expandDims(0)
         pred = model.predict(input)
-        console.log(pred[0])
+        if (pred.dataSync() >= 0.5){console.log('male')} else{console.log('female')}
          
         }
         
