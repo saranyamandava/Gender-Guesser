@@ -1,3 +1,25 @@
+async function loadDict()
+{
+  await $.ajax({
+  url: 'dict.csv',
+  dataType: 'text',}).done(success);
+}
+function success(data)
+{
+    var wd_idx = new Object();
+    lst = data.split(/\r?\n|\r/)
+    for(var i = 0 ; i < lst.length ;i++){
+        key = (lst[i]).split(',')[0]
+        value = (lst[i]).split(',')[1]
+        
+        if(key == "")
+            continue
+        wd_idx[key] = parseInt(value)
+        
+    }
+    
+    word_index = wd_idx
+}
 
 function preprocess(txt)
 {
@@ -8,11 +30,29 @@ function preprocess(txt)
     return out
 }
 
+def tokenize(thresh = 5):
+    count  = dict()
+    idx = 1
+    word_index = dict()
+    for txt in data_text:
+        words = preprocess(txt)
+        for word in words:
+            if word in count.keys():
+                count[word] += 1
+            else:
+                count[word]  = 1
+    most_counts = [word for word in count.keys() if count[word]>=thresh]
+    for word in most_counts:
+        word_index[word] = idx
+        idx+=1
+    return word_index
+
+
 function create_sequences(txt)
 {
-    max_tokens = 231
+    max_tokens = 2750
     tokens = []
-    words = preprocess(txt)
+    words = process(txt)
     seq = Array.from(Array(max_tokens), () => 0) 
     start = max_tokens-words.length
     for(var i= 0 ; i< words.length ; i++)
