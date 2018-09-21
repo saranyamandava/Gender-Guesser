@@ -56,7 +56,7 @@ async function start(){
         var status = document.getElementById('status')
       
         status.innerHTML = 'Model Loaded'
-        
+        await loadDict()
         var myText = document.getElementById("myText");
         var s = myText.value;
         seq = create_sequences(s) 
