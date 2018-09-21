@@ -63,7 +63,13 @@ async function start(){
         input = tf.tensor(seq)
         input = input.expandDims(0)
         pred = model.predict(input)
-        if (pred.dataSync() >= 0.5){document.getElementById("Result").innerHTML = class_names[0] } else{document.getElementById("Result").innerHTML = class_names[1]}
+        if (pred.dataSync() >= 0.5){
+	   document.getElementById("Result").innerHTML = class_names[0]
+	   document.getElementById("Probability").innerHTML=(pred.dataSync() * 100).toFixed(0)
+	} else{
+	   document.getElementById("Result").innerHTML = class_names[1]
+	   document.getElementById("Probability").innerHTML=(pred.dataSync() * 100).toFixed(0)	
+	}
          
         }
         
