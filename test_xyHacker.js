@@ -1,35 +1,30 @@
-import '@tensorflow/tfjs' as tf;
-var model;
-function preprocess(s){
-	var tokens = s.split(" ")
-    
-    console.log(tokens.length)
-    return tokens
+
+function preprocess(txt)
+{
+    out = txt.replace(/[^a-zA-Z0-9\s]/, '')
+    out = out.trim().split(/\s+/)
+    for (var i = 0 ; i < out.length ; i++)
+        out[i] = out[i].toLowerCase()
+    return out
 }
-function predict(s) {
-        
-        var class_names = ['Male','Female']
-        //get the prediction 
-        var pred = model.predict(preprocess(s)).dataSync()
-        console.log(pred)            
-        //retreive the highest probability class label 
-        //const idx = tf.argMax(pred);
 
-                
-        //find the predictions 
-        //var indices = findIndicesOfMax(pred, 1)
-        //console.log(indices)
-        //var probs = findTopValues(pred, 1)
-        //var names = class_names(indices) 
-
-        //set the table 
-        //setTable(names, probs) 
-        //document.getElementById("Result").innerHTML = names
+function create_sequences(txt)
+{
+    max_tokens = 231
+    tokens = []
+    words = preprocess(txt)
+    seq = Array.from(Array(max_tokens), () => 0) 
+    start = max_tokens-words.length
+    for(var i= 0 ; i< words.length ; i++)
+    {
+        if (Object.keys(word_index).includes(words[i])){
+            seq[i+start] = word_index[words[i]]
+        }    
         
-	    //console.log(names);
-        //console.log(document.getElementById("Result"));
-    
-  }
+    }
+    return seq
+}
+
 async function start(){
 	//img = document.getElementById('image').files[0];
 	
@@ -42,8 +37,11 @@ async function start(){
         
         var myText = document.getElementById("myText");
         var s = myText.value;
-        console.log(typeof(s))
-        predict(s)
+        seq = create_sequences(s) 
+        input = tf.tensor(seq)
+        input = input.expandDims(0)
+        pred = document.model.predict(input)
+        console.log(pred)
          
         }
         
