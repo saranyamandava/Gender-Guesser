@@ -64,8 +64,7 @@ function create_sequences(txt)
     }
     return seq
 }
-
-async function start(){
+function start(){
 	//img = document.getElementById('image').files[0];
 	
         
