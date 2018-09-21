@@ -50,7 +50,7 @@ function create_sequences(txt)
 async function start(){
 	//img = document.getElementById('image').files[0];
 	
-        var class_names = {'male','female'}
+        var class_names = ['male','female']
         model = await tf.loadModel('model/model.json')
         
         var status = document.getElementById('status')
